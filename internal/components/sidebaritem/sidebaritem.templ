@@ -1,0 +1,25 @@
+package sidebaritem
+
+import (
+    "github.com/andersonribeir0/clever/internal/components/css"
+    "github.com/andersonribeir0/clever/internal/components/avatar"
+)
+
+
+templ SidebarItem(profile Profile) {
+	<div class={ css.SidebarItem() }>
+		<h3>{ profile.Name }</h3>
+		{ profile.Description }
+	</div>
+}
+
+templ ProfileItem(profile Profile) {
+    <div class="container">
+        @avatar.Avatar("static/and.jpeg")
+        <div class={ css.SidebarItem() }>
+            <h3>{ profile.Name }</h3>
+            { profile.Description }
+        </div>
+    </div>
+    <hr/>
+}
