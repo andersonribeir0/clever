@@ -9,10 +9,6 @@ import "context"
 import "io"
 import "bytes"
 
-import (
-	"github.com/andersonribeir0/clever/internal/components/css"
-)
-
 func Sidebar(items ...templ.Component) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		templBuffer, templIsBuffer := w.(*bytes.Buffer)
@@ -26,20 +22,7 @@ func Sidebar(items ...templ.Component) templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var var_2 = []any{css.Sidebar()}
-		err = templ.RenderCSSItems(ctx, templBuffer, var_2...)
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("<aside class=\"")
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_2).String()))
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("\">")
+		_, err = templBuffer.WriteString("<aside class=\"sidebar\">")
 		if err != nil {
 			return err
 		}

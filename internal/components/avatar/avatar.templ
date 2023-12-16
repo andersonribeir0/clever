@@ -1,9 +1,8 @@
 package avatar
 
-import "github.com/andersonribeir0/clever/internal/components/css"
-
 templ Avatar(path string) {
-    <div id="avatarComponent" class={ css.AvatarContainer() }>
-        <img class={ css.AvatarImage() } id="avatarImage" src={ path } alt="Avatar" />
-    </div>
+	<div id="avatarComponent" class="avatar-container">
+		<img class="avatar-image" id="avatarImage" src={ path } alt="Avatar"/>
+	</div>
 }
+

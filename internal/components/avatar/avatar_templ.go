@@ -9,8 +9,6 @@ import "context"
 import "io"
 import "bytes"
 
-import "github.com/andersonribeir0/clever/internal/components/css"
-
 func Avatar(path string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		templBuffer, templIsBuffer := w.(*bytes.Buffer)
@@ -24,37 +22,7 @@ func Avatar(path string) templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var var_2 = []any{css.AvatarContainer()}
-		err = templ.RenderCSSItems(ctx, templBuffer, var_2...)
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("<div id=\"avatarComponent\" class=\"")
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_2).String()))
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("\">")
-		if err != nil {
-			return err
-		}
-		var var_3 = []any{css.AvatarImage()}
-		err = templ.RenderCSSItems(ctx, templBuffer, var_3...)
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("<img class=\"")
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_3).String()))
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("\" id=\"avatarImage\" src=\"")
+		_, err = templBuffer.WriteString("<div id=\"avatarComponent\" class=\"avatar-container\"><img class=\"avatar-image\" id=\"avatarImage\" src=\"")
 		if err != nil {
 			return err
 		}

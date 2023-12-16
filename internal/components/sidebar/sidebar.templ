@@ -1,14 +1,10 @@
 package sidebar
 
-import (
-    "github.com/andersonribeir0/clever/internal/components/css"
-)
-
 templ Sidebar(items ...templ.Component) {
-    <aside class={ css.Sidebar() }>
-        for _, v := range items {
-            {! v }
-        }
-    </aside>
+	<aside class="sidebar">
+		for _, v := range items {
+			{! v }
+		}
+	</aside>
 }
 

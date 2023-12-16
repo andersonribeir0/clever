@@ -11,7 +11,6 @@ import "bytes"
 
 import (
 	"github.com/andersonribeir0/clever/internal/components/avatar"
-	"github.com/andersonribeir0/clever/internal/components/css"
 )
 
 func SidebarItem(profile Profile) templ.Component {
@@ -27,25 +26,12 @@ func SidebarItem(profile Profile) templ.Component {
 			var_1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var var_2 = []any{css.SidebarItem()}
-		err = templ.RenderCSSItems(ctx, templBuffer, var_2...)
+		_, err = templBuffer.WriteString("<div class=\"sidebar-item\"><h3>")
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("<div class=\"")
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_2).String()))
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("\"><h3>")
-		if err != nil {
-			return err
-		}
-		var var_3 string = profile.Name
-		_, err = templBuffer.WriteString(templ.EscapeString(var_3))
+		var var_2 string = profile.Name
+		_, err = templBuffer.WriteString(templ.EscapeString(var_2))
 		if err != nil {
 			return err
 		}
@@ -53,8 +39,8 @@ func SidebarItem(profile Profile) templ.Component {
 		if err != nil {
 			return err
 		}
-		var var_4 string = profile.Description
-		_, err = templBuffer.WriteString(templ.EscapeString(var_4))
+		var var_3 string = profile.Description
+		_, err = templBuffer.WriteString(templ.EscapeString(var_3))
 		if err != nil {
 			return err
 		}
@@ -77,9 +63,9 @@ func ProfileItem(profile Profile) templ.Component {
 			defer templ.ReleaseBuffer(templBuffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		var_5 := templ.GetChildren(ctx)
-		if var_5 == nil {
-			var_5 = templ.NopComponent
+		var_4 := templ.GetChildren(ctx)
+		if var_4 == nil {
+			var_4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		_, err = templBuffer.WriteString("<div class=\"container\">")
@@ -90,25 +76,12 @@ func ProfileItem(profile Profile) templ.Component {
 		if err != nil {
 			return err
 		}
-		var var_6 = []any{css.SidebarItem()}
-		err = templ.RenderCSSItems(ctx, templBuffer, var_6...)
+		_, err = templBuffer.WriteString("<div class=\"sidebar-item\"><h3>")
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("<div class=\"")
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_6).String()))
-		if err != nil {
-			return err
-		}
-		_, err = templBuffer.WriteString("\"><h3>")
-		if err != nil {
-			return err
-		}
-		var var_7 string = profile.Name
-		_, err = templBuffer.WriteString(templ.EscapeString(var_7))
+		var var_5 string = profile.Name
+		_, err = templBuffer.WriteString(templ.EscapeString(var_5))
 		if err != nil {
 			return err
 		}
@@ -116,8 +89,8 @@ func ProfileItem(profile Profile) templ.Component {
 		if err != nil {
 			return err
 		}
-		var var_8 string = profile.Description
-		_, err = templBuffer.WriteString(templ.EscapeString(var_8))
+		var var_6 string = profile.Description
+		_, err = templBuffer.WriteString(templ.EscapeString(var_6))
 		if err != nil {
 			return err
 		}
