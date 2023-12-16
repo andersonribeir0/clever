@@ -49,7 +49,20 @@ func Home(cmpts ...templ.Component) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</script><link rel=\"stylesheet\" href=\"/static/global.css\"></head><body>")
+		_, err = templBuffer.WriteString("</script><link rel=\"stylesheet\" href=\"/static/global.css\"><style>")
+		if err != nil {
+			return err
+		}
+		var_5 := `
+				body {
+					font-family: 'JetBrains Mono', sans-serif;
+				}
+    		`
+		_, err = templBuffer.WriteString(var_5)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</style></head><body>")
 		if err != nil {
 			return err
 		}
